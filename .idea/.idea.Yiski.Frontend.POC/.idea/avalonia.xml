@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Yiski.Frontend.POC/App.axaml" value="Yiski.Frontend.POC.Desktop/Yiski.Frontend.POC.Desktop.csproj" />
+        <entry key="Yiski.Frontend.POC/Assets/Resources.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Assets/Styles.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/HomePageView.axaml" value="Yiski.Frontend.POC.Desktop/Yiski.Frontend.POC.Desktop.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/MainView.axaml" value="Yiski.Frontend.POC.Desktop/Yiski.Frontend.POC.Desktop.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/MainWindow.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/ModerationActionsView.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/ModerationLogsView.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/ServerLogsView.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+        <entry key="Yiski.Frontend.POC/Views/SettingsView.axaml" value="Yiski.Frontend.POC.Browser/Yiski.Frontend.POC.Browser.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
