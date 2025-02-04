@@ -20,10 +20,10 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm"/>
-        <PackageReference Include="FluentAvaloniaUI" />
+        <PackageReference Include="FluentAvaloniaUI"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Fonts\" />
+        <Folder Include="Assets\Fonts\"/>
     </ItemGroup>
 </Project>

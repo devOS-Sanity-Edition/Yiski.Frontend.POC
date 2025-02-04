@@ -3,51 +3,49 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Yiski.Frontend.POC.ViewModels"
-             xmlns:views="clr-namespace:Yiski.Frontend.POC.Views"
              xmlns:ui="using:FluentAvalonia.UI.Controls"
-             xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Yiski.Frontend.POC.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
 
-  <ui:NavigationView AlwaysShowHeader="True"
-                     PaneDisplayMode="Auto"
-                     Name="NavigationView"
-                     MenuItemsSource="{Binding Categories}"
-                     Content="{Binding CurrentPage}"
-                     SelectedItem="{Binding SelectedCategory}"
-                     Header="{Binding HeaderName}"
-                     FontFamily="{OnPlatform Browser={StaticResource EudoxusSans}}"
-                     FontWeight="Bold"
-                     PaneTitle="wah">
-      <ui:NavigationView.MenuItemTemplateSelector>
-          <vm:MenuItemTemplateSelector>
-              <DataTemplate DataType="{x:Type vm:Category}">
-                  <ui:NavigationViewItem Content="{Binding Name}"
-                                         FontFamily="{OnPlatform Browser={StaticResource EudoxusSans}}"
-                                         FontWeight="Normal"
-                                         IconSource="{Binding Icon}"
-                                         ToolTip.Tip="{Binding ToolTip}" />
-              </DataTemplate>
+    <ui:NavigationView AlwaysShowHeader="True"
+                       PaneDisplayMode="Auto"
+                       Name="NavigationView"
+                       MenuItemsSource="{Binding MenuItems}"
+                       Content="{Binding CurrentPage}"
+                       SelectedItem="{Binding SelectedItem}"
+                       Header="{Binding HeaderName}"
+                       FontFamily="{OnPlatform Browser={StaticResource EudoxusSans}}"
+                       FontWeight="Bold"
+                       PaneTitle="wah">
+        <ui:NavigationView.MenuItemTemplateSelector>
+            <vm:MenuItemTemplateSelector>
+                <DataTemplate DataType="{x:Type vm:Item}">
+                    <ui:NavigationViewItem Content="{Binding Name}"
+                                           FontFamily="{OnPlatform Browser={StaticResource EudoxusSans}}"
+                                           FontWeight="Normal"
+                                           IconSource="{Binding Icon}"
+                                           ToolTip.Tip="{Binding ToolTip}" />
+                </DataTemplate>
 
-              <vm:MenuItemTemplateSelector.HeaderTemplate>
-                  <DataTemplate DataType="{x:Type vm:Header}">
-                      <ui:NavigationViewItemHeader Content="{Binding Name}" />
-                  </DataTemplate>
-              </vm:MenuItemTemplateSelector.HeaderTemplate>
+                <vm:MenuItemTemplateSelector.HeaderTemplate>
+                    <DataTemplate DataType="{x:Type vm:Header}">
+                        <ui:NavigationViewItemHeader Content="{Binding Name}" />
+                    </DataTemplate>
+                </vm:MenuItemTemplateSelector.HeaderTemplate>
 
-              <vm:MenuItemTemplateSelector.SeperatorTemplate>
-                  <DataTemplate DataType="{x:Type vm:Seperator}">
-                      <ui:NavigationViewItemSeparator />
-                  </DataTemplate>
-              </vm:MenuItemTemplateSelector.SeperatorTemplate>
+                <vm:MenuItemTemplateSelector.SeperatorTemplate>
+                    <DataTemplate DataType="{x:Type vm:Seperator}">
+                        <ui:NavigationViewItemSeparator />
+                    </DataTemplate>
+                </vm:MenuItemTemplateSelector.SeperatorTemplate>
 
-          </vm:MenuItemTemplateSelector>
-      </ui:NavigationView.MenuItemTemplateSelector>
-  </ui:NavigationView>
+            </vm:MenuItemTemplateSelector>
+        </ui:NavigationView.MenuItemTemplateSelector>
+    </ui:NavigationView>
 </UserControl>

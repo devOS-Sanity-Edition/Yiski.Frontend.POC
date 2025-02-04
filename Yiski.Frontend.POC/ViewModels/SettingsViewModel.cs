@@ -1,5 +1,3 @@
 ﻿namespace Yiski.Frontend.POC.ViewModels;
 
-public class SettingsViewModel : ViewModelBase {
-    
-}
+public class SettingsViewModel : ViewModelBase { }

@@ -1,22 +1,20 @@
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
-using System.Linq;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using FluentAvalonia.Styling;
 using Yiski.Frontend.POC.ViewModels;
 using Yiski.Frontend.POC.Views;
-using Color = System.Drawing.Color;
 
 namespace Yiski.Frontend.POC;
 
 public partial class App : Application {
     public override void Initialize() {
         AvaloniaXamlLoader.Load(this);
-        Application.Current.Styles.OfType<FluentAvaloniaTheme>().First().CustomAccentColor =
-            Avalonia.Media.Color.Parse("#fff75d62");
+        Current.Styles.OfType<FluentAvaloniaTheme>().First().CustomAccentColor =
+            Color.Parse("#fff75d62");
     }
 
     public override void OnFrameworkInitializationCompleted() {
@@ -43,8 +41,6 @@ public partial class App : Application {
             BindingPlugins.DataValidators.OfType<DataAnnotationsValidationPlugin>().ToArray();
 
         // remove each entry found
-        foreach (var plugin in dataValidationPluginsToRemove) {
-            BindingPlugins.DataValidators.Remove(plugin);
-        }
+        foreach (var plugin in dataValidationPluginsToRemove) BindingPlugins.DataValidators.Remove(plugin);
     }
 }

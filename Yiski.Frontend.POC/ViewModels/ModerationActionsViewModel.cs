@@ -1,5 +1,3 @@
 ﻿namespace Yiski.Frontend.POC.ViewModels;
 
-public class ModerationActionsViewModel : ViewModelBase {
-    
-}
+public class ModerationActionsViewModel : ViewModelBase { }

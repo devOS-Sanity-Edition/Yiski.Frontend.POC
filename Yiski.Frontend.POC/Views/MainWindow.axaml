@@ -8,5 +8,5 @@
         x:Class="Yiski.Frontend.POC.Views.MainWindow"
         Icon="/Assets/icon.ico"
         Title="Yiski - Proof of Concept UI">
-        <views:MainView />
+    <views:MainView />
 </Window>

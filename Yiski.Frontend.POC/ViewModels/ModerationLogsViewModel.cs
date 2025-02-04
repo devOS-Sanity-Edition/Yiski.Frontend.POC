@@ -1,5 +1,3 @@
 ﻿namespace Yiski.Frontend.POC.ViewModels;
 
-public class ModerationLogsViewModel : ViewModelBase {
-    
-}
+public class ModerationLogsViewModel : ViewModelBase { }

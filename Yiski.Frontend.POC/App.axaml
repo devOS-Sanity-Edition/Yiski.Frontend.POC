@@ -3,14 +3,12 @@
              xmlns:local="using:Yiski.Frontend.POC"
              x:Class="Yiski.Frontend.POC.App"
              xmlns:sty="using:FluentAvalonia.Styling"
-             xmlns:ui="using:FluentAvalonia.UI.Controls"
-             xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
              RequestedThemeVariant="Default">
 
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Resources>
@@ -25,7 +23,7 @@
     <Application.Styles>
         <sty:FluentAvaloniaTheme />
         <Style Selector=":is(TopLevel)">
-            <Setter Property="FontFamily" Value="{OnPlatform Browser={StaticResource EudoxusSans}}"></Setter>
+            <Setter Property="FontFamily" Value="{OnPlatform Browser={StaticResource EudoxusSans}}" />
         </Style>
     </Application.Styles>
 

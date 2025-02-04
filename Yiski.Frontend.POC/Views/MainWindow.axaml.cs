@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using FluentAvalonia.UI.Windowing;
 
 namespace Yiski.Frontend.POC.Views;

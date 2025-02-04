@@ -1,43 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using Avalonia.Media;
 using Avalonia.Metadata;
-using CommunityToolkit.Mvvm.ComponentModel;
 using FluentAvalonia.UI.Controls;
 using Yiski.Frontend.POC.Views;
 
 namespace Yiski.Frontend.POC.ViewModels;
 
 public partial class MainViewModel : ViewModelBase {
-    private object _selectedCategory;
+    private object _selectedItem;
     private Control _currentPage = new HomePageView();
     private object _headerName = "Home";
 
-
     public MainViewModel() {
-        Categories = new List<CategoryBase>();
+        MenuItems = new List<ItemBase>();
 
-        Categories.Add(new Header { Name = "devOS 3.0: Cataclysmic Clownfish" });
-        Categories.Add(new Category { Name = "Home", ViewName = "HomePageView", Icon = Symbol.Home, ToolTip = "Welcome home" });
-        Categories.Add(new Seperator());
-        Categories.Add(new Header { Name = "ruh roh raggy" });
-        Categories.Add(new Category { Name = "Moderation Actions", ViewName = "ModerationActionsView", Icon = Symbol.Admin, ToolTip = "go, do a crime" });
-        Categories.Add(new Category { Name = "Moderation Logs", ViewName = "ModerationLogsView", Icon = Symbol.Clipboard, ToolTip = "go, become the NSA" });
+        MenuItems.Add(new Header { Name = "devOS 3.0: Cataclysmic Clownfish" });
+        MenuItems.Add(new Item {
+            Name = "Home",
+            ViewName = "HomePageView",
+            ViewType = typeof(HomePageViewModel),
+            Icon = Symbol.Home
+            // ToolTip = "Welcome home"
+        });
+        MenuItems.Add(new Seperator());
+        MenuItems.Add(new Header { Name = "ruh roh raggy" });
+        MenuItems.Add(new Item {
+            Name = "Moderation Actions",
+            ViewName = "ModerationActionsView",
+            ViewType = typeof(ModerationActionsViewModel),
+            Icon = Symbol.Admin
+            // ToolTip = "go, do a crime"
+        });
+        MenuItems.Add(new Item {
+            Name = "Moderation Logs",
+            ViewName = "ModerationLogsView",
+            ViewType = typeof(ModerationLogsViewModel),
+            Icon = Symbol.Clipboard
+            // ToolTip = "go, become the NSA"
+        });
 
-        SelectedCategory = Categories[1];
+        SelectedItem = MenuItems[1];
     }
 
-    public List<CategoryBase> Categories { get; }
+    public List<ItemBase> MenuItems { get; }
 
 
-    public object SelectedCategory {
-        get => _selectedCategory;
+    public object SelectedItem {
+        get => _selectedItem;
         set {
-            SetProperty(ref _selectedCategory, value);
+            SetProperty(ref _selectedItem, value);
             SetCurrentPage();
         }
     }
@@ -53,14 +66,15 @@ public partial class MainViewModel : ViewModelBase {
     }
 
     private void SetCurrentPage() {
-        if (SelectedCategory is Category cat) {
+        if (SelectedItem is Item cat) {
             var pageName = $"Yiski.Frontend.POC.Views.{cat.ViewName}";
-            var page = Activator.CreateInstance(Type.GetType(pageName));
+            var page = Activator.CreateInstance(Type.GetType(pageName)!)!;
+            (page as Control).DataContext = cat.ViewType != null ? Activator.CreateInstance(cat.ViewType)! : this;
             CurrentPage = page as Control;
             HeaderName = cat.Name;
         }
 
-        else if (SelectedCategory is NavigationViewItem nvi) {
+        else if (SelectedItem is NavigationViewItem nvi) {
             var page = Activator.CreateInstance(Type.GetType($"Yiski.Frontend.POC.Views.SettingsView"));
             CurrentPage = page as Control;
             HeaderName = "Settings";
@@ -68,24 +82,24 @@ public partial class MainViewModel : ViewModelBase {
     }
 }
 
-public abstract class CategoryBase { }
+public abstract class ItemBase { }
 
-public class Category : CategoryBase {
-    public string Name { get; set; }
-    public string ViewName { get; set; }
-    public string ToolTip { get; set; }
-    public Symbol Icon { get; set; }
+public class Item : ItemBase {
+    public required string Name { get; set; }
+    public required string ViewName { get; set; }
+    public required Type ViewType { get; set; }
+    public string? ToolTip { get; set; }
+    public required Symbol Icon { get; set; }
 }
 
-public class Seperator : CategoryBase { }
+public class Seperator : ItemBase { }
 
-public class Header : CategoryBase {
+public class Header : ItemBase {
     public string Name { get; set; }
 }
 
 public class MenuItemTemplateSelector : DataTemplateSelector {
-    [Content]
-    public IDataTemplate ItemTemplate { get; set; }
+    [Content] public IDataTemplate ItemTemplate { get; set; }
     public IDataTemplate SeperatorTemplate { get; set; }
     public IDataTemplate HeaderTemplate { get; set; }
 
