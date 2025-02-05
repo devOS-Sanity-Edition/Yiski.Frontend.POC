@@ -22,7 +22,7 @@
 
     <Application.Styles>
         <sty:FluentAvaloniaTheme />
-        <Style Selector=":is(TopLevel)">
+        <Style Selector="ContentPresenter">
             <Setter Property="FontFamily" Value="{OnPlatform Browser={StaticResource EudoxusSans}}" />
         </Style>
     </Application.Styles>

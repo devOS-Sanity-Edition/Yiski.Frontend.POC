@@ -22,7 +22,7 @@
                        Header="{Binding HeaderName}"
                        FontFamily="{OnPlatform Browser={StaticResource EudoxusSans}}"
                        FontWeight="Bold"
-                       PaneTitle="wah">
+                       PaneTitle="{Binding ServerName}">
         <ui:NavigationView.MenuItemTemplateSelector>
             <vm:MenuItemTemplateSelector>
                 <DataTemplate DataType="{x:Type vm:Item}">

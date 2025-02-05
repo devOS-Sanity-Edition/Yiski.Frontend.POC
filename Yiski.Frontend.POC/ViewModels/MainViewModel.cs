@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Avalonia.Metadata;
+using CommunityToolkit.Mvvm.ComponentModel;
 using FluentAvalonia.UI.Controls;
 using Yiski.Frontend.POC.Views;
 
@@ -11,37 +13,39 @@ namespace Yiski.Frontend.POC.ViewModels;
 public partial class MainViewModel : ViewModelBase {
     private object _selectedItem;
     private Control _currentPage = new HomePageView();
-    private object _headerName = "Home";
+    private object _headerName;
+
+    [ObservableProperty]
+    private string _serverName = "devOS: 3.0: Cataclysmic Clownfish";
 
     public MainViewModel() {
         MenuItems = new List<ItemBase>();
 
-        MenuItems.Add(new Header { Name = "devOS 3.0: Cataclysmic Clownfish" });
         MenuItems.Add(new Item {
             Name = "Home",
             ViewName = "HomePageView",
             ViewType = typeof(HomePageViewModel),
-            Icon = Symbol.Home
-            // ToolTip = "Welcome home"
+            Icon = Symbol.Home,
+            ToolTip = "Welcome home"
         });
         MenuItems.Add(new Seperator());
-        MenuItems.Add(new Header { Name = "ruh roh raggy" });
+        MenuItems.Add(new Header { Name = "Moderation View" });
         MenuItems.Add(new Item {
             Name = "Moderation Actions",
             ViewName = "ModerationActionsView",
             ViewType = typeof(ModerationActionsViewModel),
-            Icon = Symbol.Admin
-            // ToolTip = "go, do a crime"
+            Icon = Symbol.Admin,
+            ToolTip = "go, do a crime"
         });
         MenuItems.Add(new Item {
             Name = "Moderation Logs",
             ViewName = "ModerationLogsView",
             ViewType = typeof(ModerationLogsViewModel),
-            Icon = Symbol.Clipboard
-            // ToolTip = "go, become the NSA"
+            Icon = Symbol.Clipboard,
+            ToolTip = "go, become the NSA"
         });
 
-        SelectedItem = MenuItems[1];
+        SelectedItem = MenuItems[0];
     }
 
     public List<ItemBase> MenuItems { get; }
@@ -64,6 +68,8 @@ public partial class MainViewModel : ViewModelBase {
         get => _headerName;
         set => SetProperty(ref _headerName, value);
     }
+
+
 
     private void SetCurrentPage() {
         if (SelectedItem is Item cat) {
@@ -99,7 +105,8 @@ public class Header : ItemBase {
 }
 
 public class MenuItemTemplateSelector : DataTemplateSelector {
-    [Content] public IDataTemplate ItemTemplate { get; set; }
+    [Content]
+    public IDataTemplate ItemTemplate { get; set; }
     public IDataTemplate SeperatorTemplate { get; set; }
     public IDataTemplate HeaderTemplate { get; set; }
 
