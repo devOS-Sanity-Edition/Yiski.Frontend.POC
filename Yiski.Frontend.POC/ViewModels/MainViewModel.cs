@@ -44,6 +44,13 @@ public partial class MainViewModel : ViewModelBase {
             Icon = Symbol.Clipboard,
             ToolTip = "go, become the NSA"
         });
+        MenuItems.Add(new Header { Name = "Server" });
+        MenuItems.Add(new Item {
+            Name = "Logs",
+            ViewName = "ServerLogsView",
+            ViewType = typeof(ServerLogsViewModel),
+            Icon = Symbol.Keyboard
+        });
 
         SelectedItem = MenuItems[0];
     }

@@ -3,12 +3,90 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Yiski.Frontend.POC.ViewModels"
+             xmlns:ui="using:FluentAvalonia.UI.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Yiski.Frontend.POC.Views.HomePageView"
-             x:DataType="vm:HomePageViewModel">
-    <StackPanel Margin="20 20 20 0">
-        <Border>
-            <TextBlock Text="{Binding GreetingText}" />
-        </Border>
+             x:DataType="vm:HomePageViewModel"
+             >
+    <Design.DataContext>
+        <vm:HomePageViewModel />
+    </Design.DataContext>
+    
+    <!--TODO: REPLACE PLACEHOLDERS WITH ACTUAL IMAGES LATER-->
+
+    <StackPanel Margin="58 20 58 0" Spacing="16">
+        <ui:InfoBar Title="Up to date!" IsOpen="True" Severity="Success" Message="Your version of Yiski is currently up to date!" />
+        <TextBlock Text="{Binding GreetingText}" Theme="{DynamicResource TitleTextBlockStyle}" />
+
+        <Expander IsExpanded="True" ExpandDirection="Down" FontWeight="Regular">
+            <Expander.Header>
+                <TextBlock Text="Server" />
+            </Expander.Header>
+            <RelativePanel>
+                <Rectangle Name="Placeholder"
+                           Fill="Red"
+                           Width="128"
+                           Height="128" />
+                <StackPanel RelativePanel.RightOf="Placeholder" Margin="8 0">
+                    <TextBlock>
+                        <TextBlock Text="Server Name:" FontWeight="Bold" />
+                        <TextBlock Text="devOS 3.0: Cataclysmic Clownfish" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Members:" FontWeight="Bold" />
+                        <TextBlock Text="83" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Verification:" FontWeight="Bold" />
+                        <TextBlock Text="High" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Emojis:" FontWeight="Bold" />
+                        <TextBlock Text="243" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Stickers:" FontWeight="Bold" />
+                        <TextBlock Text="30" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Boosts:" FontWeight="Bold" />
+                        <TextBlock Text="7" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Owner:" FontWeight="Bold" />
+                        <TextBlock Text="root@asoji.gay" />
+                    </TextBlock>
+                </StackPanel>
+            </RelativePanel>
+        </Expander>
+        <Expander IsExpanded="True" ExpandDirection="Down" FontWeight="Regular">
+            <Expander.Header>
+                <TextBlock Text="Yiski" />
+            </Expander.Header>
+            <RelativePanel>
+                <Rectangle Name="Placeholder2"
+                           Fill="Orange"
+                           Width="128"
+                           Height="128" />
+                <StackPanel RelativePanel.RightOf="Placeholder2" Margin="8 0">
+                    <TextBlock>
+                        <TextBlock Text="Version:" FontWeight="Bold" />
+                        <TextBlock Text="DEVELOPMENT" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Aviation Version:" FontWeight="Bold" />
+                        <TextBlock Text="7d1dcef7" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="JDA Version:" FontWeight="Bold" />
+                        <TextBlock Text="5.0.1_bc9187a" />
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock Text="Modules Loaded:" FontWeight="Bold" />
+                        <TextBlock Text="Yiski1, Yiski2, Yiski3, Yiski4, Yiski5, Yiski6" />
+                    </TextBlock>
+                </StackPanel>
+            </RelativePanel>
+        </Expander>
     </StackPanel>
 </UserControl>

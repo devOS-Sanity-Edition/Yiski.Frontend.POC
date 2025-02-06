@@ -2,7 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ui="using:FluentAvalonia.UI.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Yiski.Frontend.POC.Views.ModerationActionsView">
-    Moderation Actions
+    <StackPanel Margin="58 20 58 0" Spacing="16">
+        <ui:InfoBar Title="Remember!" IsOpen="True" Severity="Warning" Message="Misuse of moderation tools will get you punished." />
+    </StackPanel>
 </UserControl>

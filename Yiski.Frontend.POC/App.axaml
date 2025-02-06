@@ -25,6 +25,7 @@
         <Style Selector="ContentPresenter">
             <Setter Property="FontFamily" Value="{OnPlatform Browser={StaticResource EudoxusSans}}" />
         </Style>
+
     </Application.Styles>
 
 
