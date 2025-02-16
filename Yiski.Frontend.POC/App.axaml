@@ -3,6 +3,7 @@
              xmlns:local="using:Yiski.Frontend.POC"
              x:Class="Yiski.Frontend.POC.App"
              xmlns:sty="using:FluentAvalonia.Styling"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
              RequestedThemeVariant="Default">
 
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
@@ -25,7 +26,7 @@
         <Style Selector="ContentPresenter">
             <Setter Property="FontFamily" Value="{OnPlatform Browser={StaticResource EudoxusSans}}" />
         </Style>
-
+        <StyleInclude Source="avares://AsyncImageLoader.Avalonia/AdvancedImage.axaml" />
     </Application.Styles>
 
 

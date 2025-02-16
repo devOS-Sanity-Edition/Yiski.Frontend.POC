@@ -3,22 +3,148 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ui="using:FluentAvalonia.UI.Controls"
+             xmlns:vm="clr-namespace:Yiski.Frontend.POC.ViewModels"
+             xmlns:ia="using:Avalonia.Xaml.Interactions.Animated"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Yiski.Frontend.POC.Views.SettingsView">
-    <StackPanel Margin="58, 20, 58, 0" Spacing="16">
-        <ui:SettingsExpander Header="aaaaaa" FontWeight="Normal">
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa" />
-            <ui:SettingsExpanderItem Content="aaaaaa">
-                <ui:SettingsExpanderItem.Footer>
-                    <Button Content="aaaaaa" FontWeight="Bold"></Button>
-                </ui:SettingsExpanderItem.Footer>
-            </ui:SettingsExpanderItem>
+             x:Class="Yiski.Frontend.POC.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+    <ScrollViewer>
+        <Interaction.Behaviors>
+            <ia:VerticalScrollViewerAnimatedBehavior/>
+        </Interaction.Behaviors>
+        <StackPanel Margin="58, 20, 58, 0" Spacing="16">
+            <TextBlock Theme="{DynamicResource TitleTextBlockStyle}" Text="About" />
+            <ui:SettingsExpander Header="About Frontend" FontWeight="Normal">
+                <ui:SettingsExpanderItem Content="Frontend Proof of Concept">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="GitHub"
+                                             NavigateUri="https://github.com/asoji/Yiski.Frontend.POC" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="Developed and Designed by"
+                                         Description="asojidev">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home" NavigateUri="https://asoji.one" />
+                            <HyperlinkButton Content="GitHub"
+                                             NavigateUri="https://github.com/asoji" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="Additional Programming Assistance by"
+                                         Description="AlsoSylv, BluSpring, CephalonCosmic">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="AlsoSlyv's GitHub"
+                                             NavigateUri="https://github.com/AlsoSlyv" />
+                            <HyperlinkButton Content="BluSpring's GitHub"
+                                             NavigateUri="https://github.com/BluSpring" />
+                            <HyperlinkButton Content="CephalonCosmic's GitHub"
+                                             NavigateUri="https://github.com/CephalonCosmic" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="Additional Design Assistance by"
+                                         Description="AlsoSylv, CephalonCosmic, scidsgn">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="AlsoSlyv's GitHub"
+                                             NavigateUri="https://github.com/AlsoSlyv" />
+                            <HyperlinkButton Content="CephalonCosmic's GitHub"
+                                             NavigateUri="https://github.com/CephalonCosmic" />
+                            <HyperlinkButton Content="Sci's Home"
+                                             NavigateUri="https://scidsgn.art" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem
+                    Content="Made with a lot of love and care, design with consideration of others. 💖"
+                    Description="Extra thanks to my boyfriend Hunter for being there for me when I need it, especially when I rage at programming and design. :p"
+                    FontWeight="Bold" />
+            </ui:SettingsExpander>
 
-        </ui:SettingsExpander>
-    </StackPanel>
+            <ui:SettingsExpander Header="Bot Runtime Versions" FontWeight="Normal">
+                <ui:SettingsExpanderItem Content="Yiski"
+                                         Description="DEVELOPMENT">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home" NavigateUri="https://yiski.devos.one" />
+                            <HyperlinkButton Content="GitHub"
+                                             NavigateUri="https://github.com/devOS-Sanity-Edition/yiski" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="Aviation"
+                                         Description="7d1dcef7">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="GitLab"
+                                             NavigateUri="https://gitlab.com/artrinix/discord/aviation" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="Kotlin"
+                                         Description="2.1.0">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home" NavigateUri="https://kotlinlang.org" />
+                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/jetbrains/kotlin" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="JDA"
+                                         Description="5.0.1_bc9187a">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home" NavigateUri="https://jda.wiki/introduction/jda/" />
+                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/discord-jda/JDA" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="jda-ktx"
+                                         Description="0.12.0">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/MinnDevelopment/jda-ktx" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+            </ui:SettingsExpander>
+
+            <ui:SettingsExpander Header="Frontend Runtime Versions" FontWeight="Normal">
+                <ui:SettingsExpanderItem Content="Avalonia UI"
+                                         Description="{Binding AvaloniaVersion}">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home" NavigateUri="https://avaloniaui.net" />
+                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/AvaloniaUI/Avalonia" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="FluentAvalonia"
+                                         Description="{Binding FluentAvaloniaVersion}">
+                    <ui:SettingsExpanderItem.Footer>
+                        <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/amwx/FluentAvalonia" />
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+                <ui:SettingsExpanderItem Content="CommunityToolkit.Mvvm"
+                                         Description="{Binding CommunityToolkitMvvmVersion}">
+                    <ui:SettingsExpanderItem.Footer>
+                        <WrapPanel>
+                            <HyperlinkButton Content="Home"
+                                             NavigateUri="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm" />
+                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/CommunityToolkit/dotnet" />
+                        </WrapPanel>
+                    </ui:SettingsExpanderItem.Footer>
+                </ui:SettingsExpanderItem>
+            </ui:SettingsExpander>
+
+            <Rectangle Height="32" />
+                                        <!--Extra stupid padding don't fuckin ask, i just hate how if you scrolled down
+                                        it ended directly at the end of the last Settings expander and didn't do a few
+                                        extra pixels aaaaa-->
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

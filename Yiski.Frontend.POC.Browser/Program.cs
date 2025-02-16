@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
+using Avalonia.Media;
 using Yiski.Frontend.POC;
 
 internal sealed partial class Program {
@@ -9,5 +10,8 @@ internal sealed partial class Program {
         .StartBrowserAppAsync("out");
 
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>();
+        => AppBuilder.Configure<App>()
+            .With(new FontManagerOptions() {
+                DefaultFamilyName = "avares://Yiski.Frontend.POC/Assets/Fonts#Eudoxus Sans",
+            });
 }

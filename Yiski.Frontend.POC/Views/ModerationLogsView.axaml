@@ -3,9 +3,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ui="using:FluentAvalonia.UI.Controls"
+             xmlns:vm="clr-namespace:Yiski.Frontend.POC.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Yiski.Frontend.POC.Views.ModerationLogsView">
+             x:Class="Yiski.Frontend.POC.Views.ModerationLogsView"
+             x:DataType="vm:ModerationLogsViewModel">
     <StackPanel Margin="58 20 58 0" Spacing="16">
+        <DataGrid ItemsSource="{Binding ModerationEntries}"
+                  IsReadOnly="True"
+                  CanUserReorderColumns="True"
+                  CanUserSortColumns="True"
+                  CanUserResizeColumns="True"
+                  GridLinesVisibility="None"
+                  FontWeight="Normal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding InfractionId}" />
+                <DataGridTextColumn Header="Guild ID" Binding="{Binding GuildId}" />
+                <DataGridTextColumn Header="User ID" Binding="{Binding UserId}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding InfractionType}" />
+                <DataGridTextColumn Header="Reason" Binding="{Binding Reason}" />
+                <DataGridTextColumn Header="Moderator ID" Binding="{Binding ModeratorId}" />
+                <DataGridTextColumn Header="Messages" Binding="{Binding Messages}" />
+                <DataGridTextColumn Header="Role IDs" Binding="{Binding RoleIDs}" />
+                <DataGridTextColumn Header="Created" Binding="{Binding CreatedAt}" />
+                <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
+                <DataGridTextColumn Header="End Time" Binding="{Binding EndTime}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
+        <ui:SettingsExpander HeaderTemplate="{Binding ModerationEntries}"></ui:SettingsExpander>
     </StackPanel>
 </UserControl>

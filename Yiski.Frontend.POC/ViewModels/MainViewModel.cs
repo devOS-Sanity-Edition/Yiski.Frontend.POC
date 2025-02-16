@@ -76,8 +76,6 @@ public partial class MainViewModel : ViewModelBase {
         set => SetProperty(ref _headerName, value);
     }
 
-
-
     private void SetCurrentPage() {
         if (SelectedItem is Item cat) {
             var pageName = $"Yiski.Frontend.POC.Views.{cat.ViewName}";
@@ -89,6 +87,7 @@ public partial class MainViewModel : ViewModelBase {
 
         else if (SelectedItem is NavigationViewItem nvi) {
             var page = Activator.CreateInstance(Type.GetType($"Yiski.Frontend.POC.Views.SettingsView"));
+            (page as Control).DataContext = Activator.CreateInstance(typeof(SettingsViewModel))!; // i hate this
             CurrentPage = page as Control;
             HeaderName = "Settings";
         }

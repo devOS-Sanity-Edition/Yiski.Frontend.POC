@@ -7,5 +7,6 @@
              x:Class="Yiski.Frontend.POC.Views.ModerationActionsView">
     <StackPanel Margin="58 20 58 0" Spacing="16">
         <ui:InfoBar Title="Remember!" IsOpen="True" Severity="Warning" Message="Misuse of moderation tools will get you punished." />
+
     </StackPanel>
 </UserControl>
