@@ -15,16 +15,34 @@ namespace Yiski.Frontend.POC.ViewModels;
 public partial class SettingsViewModel : ViewModelBase {
     [ObservableProperty] private static AvaloniaDictionary<string, string> _botRuntimeVersions;
 
-    [ObservableProperty] private static string _yiskiVersion;
-    [ObservableProperty] private static string _aviationVersion;
-    [ObservableProperty] private static string _jdaVersion;
-    [ObservableProperty] private static string _kotlinVersion;
-
     [ObservableProperty] private static string _communityToolkitMvvmVersion = typeof(ObservableObject).Assembly.GetName().Version.ToString();
     [ObservableProperty] private static string _fluentAvaloniaVersion = typeof(FluentAvaloniaTheme).Assembly.GetName().Version.ToString();
     [ObservableProperty] private static string _avaloniaVersion = typeof(AvaloniaObject).Assembly.GetName().Version.ToString();
 
-    public Task<string> Versions => GetAsync();
+    private static string _yiskiVersion;
+    private static string _aviationVersion;
+    private static string _jdaVersion;
+    private static string _kotlinVersion;
+
+    public string YiskiVersion
+    {
+        get => _yiskiVersion;
+        set => SetProperty(ref _yiskiVersion, value);
+    }
+    public string AviationVersion
+    {
+        get => _aviationVersion;
+        set => SetProperty(ref _aviationVersion, value);
+    }
+    public string JdaVersion {
+        get => _jdaVersion;
+        set => SetProperty(ref _jdaVersion, value);
+    }
+    public string KotlinVersion
+    {
+        get => _kotlinVersion;
+        set => SetProperty(ref _kotlinVersion, value);
+    }
 
     public SettingsViewModel() {
         Task.Run(new Action(async () => await GetAsync()));

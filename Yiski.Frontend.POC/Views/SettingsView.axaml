@@ -15,7 +15,6 @@
         </Interaction.Behaviors>
         <StackPanel Margin="58, 20, 58, 0" Spacing="16">
             <TextBlock Theme="{DynamicResource TitleTextBlockStyle}" Text="About" />
-            <TextBlock Text="{Binding Versions^, FallbackValue='Getting value...'}"></TextBlock>
             <ui:SettingsExpander Header="About Frontend" FontWeight="Normal">
                 <ui:SettingsExpanderItem Content="Frontend Proof of Concept">
                     <ui:SettingsExpanderItem.Footer>
