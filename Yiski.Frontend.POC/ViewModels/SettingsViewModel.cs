@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Avalonia;
@@ -26,7 +27,7 @@ public partial class SettingsViewModel : ViewModelBase {
     public Task<string> Versions => GetAsync();
 
     public SettingsViewModel() {
-        GetAsync();
+        Task.Run(new Action(async () => await GetAsync()));
     }
 
     static async Task<string> GetAsync() {
