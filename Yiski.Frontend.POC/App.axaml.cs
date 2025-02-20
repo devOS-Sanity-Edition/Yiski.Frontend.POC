@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Net.Http;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -43,4 +45,8 @@ public partial class App : Application {
         // remove each entry found
         foreach (var plugin in dataValidationPluginsToRemove) BindingPlugins.DataValidators.Remove(plugin);
     }
+
+    public static HttpClient httpClient = new() {
+        BaseAddress = new Uri(Environment.GetEnvironmentVariable("BOT_URL"))
+    };
 }

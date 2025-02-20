@@ -5,6 +5,7 @@
              xmlns:ui="using:FluentAvalonia.UI.Controls"
              xmlns:vm="clr-namespace:Yiski.Frontend.POC.ViewModels"
              xmlns:ia="using:Avalonia.Xaml.Interactions.Animated"
+             xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Runtime"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Yiski.Frontend.POC.Views.SettingsView"
              x:DataType="vm:SettingsViewModel">
@@ -14,6 +15,7 @@
         </Interaction.Behaviors>
         <StackPanel Margin="58, 20, 58, 0" Spacing="16">
             <TextBlock Theme="{DynamicResource TitleTextBlockStyle}" Text="About" />
+            <TextBlock Text="{Binding Versions^, FallbackValue='Getting value...'}"></TextBlock>
             <ui:SettingsExpander Header="About Frontend" FontWeight="Normal">
                 <ui:SettingsExpanderItem Content="Frontend Proof of Concept">
                     <ui:SettingsExpanderItem.Footer>
@@ -67,7 +69,7 @@
 
             <ui:SettingsExpander Header="Bot Runtime Versions" FontWeight="Normal">
                 <ui:SettingsExpanderItem Content="Yiski"
-                                         Description="DEVELOPMENT">
+                                         Description="{Binding YiskiVersion}">
                     <ui:SettingsExpanderItem.Footer>
                         <WrapPanel>
                             <HyperlinkButton Content="Home" NavigateUri="https://yiski.devos.one" />
@@ -77,7 +79,7 @@
                     </ui:SettingsExpanderItem.Footer>
                 </ui:SettingsExpanderItem>
                 <ui:SettingsExpanderItem Content="Aviation"
-                                         Description="7d1dcef7">
+                                         Description="{Binding AviationVersion}">
                     <ui:SettingsExpanderItem.Footer>
                         <WrapPanel>
                             <HyperlinkButton Content="GitLab"
@@ -86,7 +88,7 @@
                     </ui:SettingsExpanderItem.Footer>
                 </ui:SettingsExpanderItem>
                 <ui:SettingsExpanderItem Content="Kotlin"
-                                         Description="2.1.0">
+                                         Description="{Binding KotlinVersion}">
                     <ui:SettingsExpanderItem.Footer>
                         <WrapPanel>
                             <HyperlinkButton Content="Home" NavigateUri="https://kotlinlang.org" />
@@ -95,7 +97,7 @@
                     </ui:SettingsExpanderItem.Footer>
                 </ui:SettingsExpanderItem>
                 <ui:SettingsExpanderItem Content="JDA"
-                                         Description="5.0.1_bc9187a">
+                                         Description="{Binding JdaVersion}">
                     <ui:SettingsExpanderItem.Footer>
                         <WrapPanel>
                             <HyperlinkButton Content="Home" NavigateUri="https://jda.wiki/introduction/jda/" />
@@ -103,19 +105,11 @@
                         </WrapPanel>
                     </ui:SettingsExpanderItem.Footer>
                 </ui:SettingsExpanderItem>
-                <ui:SettingsExpanderItem Content="jda-ktx"
-                                         Description="0.12.0">
-                    <ui:SettingsExpanderItem.Footer>
-                        <WrapPanel>
-                            <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/MinnDevelopment/jda-ktx" />
-                        </WrapPanel>
-                    </ui:SettingsExpanderItem.Footer>
-                </ui:SettingsExpanderItem>
             </ui:SettingsExpander>
 
             <ui:SettingsExpander Header="Frontend Runtime Versions" FontWeight="Normal">
                 <ui:SettingsExpanderItem Content="Avalonia UI"
-                                         Description="{Binding AvaloniaVersion}">
+                                         Description="{Binding AviationVersion}">
                     <ui:SettingsExpanderItem.Footer>
                         <WrapPanel>
                             <HyperlinkButton Content="Home" NavigateUri="https://avaloniaui.net" />

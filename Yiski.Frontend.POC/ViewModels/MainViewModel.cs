@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
@@ -19,7 +20,7 @@ public partial class MainViewModel : ViewModelBase {
     private string _serverName = "devOS: 3.0: Cataclysmic Clownfish";
 
     public MainViewModel() {
-        MenuItems = new List<ItemBase>();
+        MenuItems = new ObservableCollection<ItemBase>();
 
         MenuItems.Add(new Item {
             Name = "Home",
@@ -55,7 +56,7 @@ public partial class MainViewModel : ViewModelBase {
         SelectedItem = MenuItems[0];
     }
 
-    public List<ItemBase> MenuItems { get; }
+    public ObservableCollection<ItemBase> MenuItems { get; }
 
 
     public object SelectedItem {
