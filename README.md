@@ -1,6 +1,6 @@
 ﻿# Yiski.Frontend.POC
 
-> ![NOTE]
+> [!NOTE]
 > This project is abandoned, and probably will no longer be worked on. The project just kept stalling in ways and just 
 > felt too overwhelming to work on, especially with the XAML'isms and how MVVM works in .NET land. If I come back to it 
 > then I come back to it, but for now, consider this dead and archived.
